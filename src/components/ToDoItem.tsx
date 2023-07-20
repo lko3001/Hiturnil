@@ -14,7 +14,7 @@ export default function ToDoItem() {
         </p>
       </div>
       <FiX
-        className="mr-2 w-fit cursor-pointer rounded-xl text-2xl text-snow-400 opacity-0 transition-all hover:text-hiturnil focus-visible:border-none focus-visible:text-hiturnil focus-visible:opacity-100 focus-visible:outline-none group-hover/todo:opacity-100 dark:text-space-200 dark:hover:text-hiturnil dark:focus-visible:text-hiturnil"
+        className="mr-2 w-fit cursor-pointer rounded-xl text-2xl text-snow-400 opacity-0 outline-none transition-all hover:text-hiturnil focus:outline-none focus-visible:border-none focus-visible:text-hiturnil focus-visible:opacity-100 focus-visible:outline-none group-hover/todo:opacity-100 dark:text-space-200 dark:hover:text-hiturnil dark:focus-visible:text-hiturnil"
         tabIndex={0}
       />
     </div>

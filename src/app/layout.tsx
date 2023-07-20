@@ -5,6 +5,7 @@ import { useState } from "react";
 import { GlobalProvider } from "@/components/GlobalContext";
 import Root from "@/components/Root";
 import { ThemeProvider } from "next-themes";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} h-0 min-h-screen`}>
         <ThemeProvider enableSystem={true} attribute="class">
-          <GlobalProvider>
-            <Root>{children}</Root>
-          </GlobalProvider>
+          <SessionProvider>
+            <GlobalProvider>
+              <Root>{children}</Root>
+            </GlobalProvider>
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>

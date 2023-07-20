@@ -1,26 +1,22 @@
 import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar";
 import { ReactNode } from "react";
-import { motion } from "framer-motion";
-import { useGlobalProvider } from "./GlobalContext";
+import { usePathname } from "next/navigation";
 
 export default function Root({ children }: { children: ReactNode }) {
-  const { isSidebarOpen } = useGlobalProvider();
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <main className="h-0 min-h-screen bg-snow-200 dark:bg-space-500 dark:text-white">
-      <div className="mx-auto flex h-full flex-col px-5 py-0">
-        <Navbar />
-        <div
-          className={`relative flex flex-row ${
-            isSidebarOpen ? "gap-4" : "gap-0"
-          } overflow-hidden transition-[gap] duration-200`}
-        >
-          <Sidebar />
-          <motion.div className="no-scrollbar h-full w-full overflow-y-auto px-1 @container">
-            {children}
-          </motion.div>
+      {pathname !== "/signin" ? (
+        <div className="mx-auto flex h-full flex-col px-5 py-0">
+          <Navbar />
+          {children}
         </div>
-      </div>
+      ) : (
+        <div className="flex h-full items-center justify-center">
+          {children}
+        </div>
+      )}
     </main>
   );
 }
